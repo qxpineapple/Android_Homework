@@ -62,19 +62,16 @@ public class RcAdapterWholeChange extends RecyclerView.Adapter<RcAdapterWholeCha
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        /**如果没有进行搜索操作或者搜索之后点击了删除按钮 我们会在MainActivity中把text置空并传递过来*/
         if (text != null) {
-            //设置span
             SpannableString string = matcherSearchText(Color.rgb(255, 0, 0), list.get(position), text);
             holder.mTvText.setText(string);
         } else {
             holder.mTvText.setText(list.get(position));
         }
-        //属性动画
+
         animator = AnimatorInflater.loadAnimator(context, R.animator.anim_set);
         animator.setTarget(holder.mLlItem);
         animator.start();
-        //点击监听
         holder.mLlItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,17 +114,13 @@ public class RcAdapterWholeChange extends RecyclerView.Adapter<RcAdapterWholeCha
      */
     private SpannableString matcherSearchText(int color, String text, String keyword) {
         SpannableString spannableString = new SpannableString(text);
-        //条件 keyword
         Pattern pattern = Pattern.compile(keyword);
-        //匹配
         Matcher matcher = pattern.matcher(spannableString);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            //ForegroundColorSpan 需要new 不然也只能是部分变色
             spannableString.setSpan(new ForegroundColorSpan(color), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
-        //返回变色处理的结果
         return spannableString;
     }
 
