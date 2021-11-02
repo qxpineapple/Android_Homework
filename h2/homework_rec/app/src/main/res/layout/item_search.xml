@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:id="@+id/ll_item"
+    android:layout_marginTop="3dp"
+    android:background="@drawable/shape_search"
+    android:layout_marginRight="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_height="60dp">
+    <TextView
+        android:textColor="#7f44ff"
+        android:gravity="center"
+        android:text="123"
+        android:id="@+id/tv_text"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:singleLine="true"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+</LinearLayout>
